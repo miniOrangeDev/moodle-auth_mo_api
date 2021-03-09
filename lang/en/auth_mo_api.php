@@ -15,24 +15,22 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This library is miniOrange Dictionary Service.
+ * This library is contain overridden moodle method.
  *
- * Contains language oriented things.
+ * Contains authentication method.
  *
  * @copyright   2020  miniOrange
- * @category    dictionary
+ * @category    authentication
  * @license     http://www.gnu.org/copyleft/gpl.html GNU/GPL v3 or later, see license.txt
  * @package     auth_mo_api
  */
+
 $string['mo_apititle'] = 'miniOrange API Authentication moodle';
 $string['mo_apidescription'] = '';
 $string['mo_api_create_or_update_warning'] = "When auto-provisioning or auto-update is enable,";
 $string['mo_api_empty_required_value'] = "is a required attribute, provide a valid value";
 $string['pluginname'] = 'miniOrange API Authentication';
 $string['pluginname_desc'] = 'abcd';
-
-
-
 $string['auth_mo_configure_api_setting'] = 'Moodle SSO solution by miniOrange allows your users to login to multiple applications via their Moodle credentials.This way, you can achieve Single Sign-On into your applications where the users will need to authenticate themselves via their Moodle credentials only once and they can access all the configured applications.';
 $string['mo_api_credentials'] = 'API Credentials: ';
 $string['mo_api_User_Authentication_API_URL'] = 'User Authentication API URL: ';
@@ -54,21 +52,3 @@ $string['mo_api_fullname'] = 'Full Name:';
 $string['mo_api_fullname_desc'] = 'Enter full name';
 $string['mo_api_button'] = 'Generate New Key';
 $string['mo_api_button_desc'] = 'abcd';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
