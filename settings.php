@@ -24,60 +24,105 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU/GPL v3 or later, see license.txt
  * @package     auth_mo_api
  */
+
 defined('MOODLE_INTERNAL') || die;
+
 if ($ADMIN->fulltree) {
-	global $CFG;
-	$config = get_config('auth/mo_api');
-    if(empty($apikey))
-	{
-	    $apikey = "abcd";
-	    set_config('apikey', $apikey, 'auth/mo_api');
-	}
+    global $CFG;
+    $config = get_config('auth/mo_api');
+    if (empty($apikey)) {
+        $apikey = "abcd";
+        set_config('apikey', $apikey, 'auth/mo_api');
+    }
 
-	$settings->add(new admin_setting_heading('auth_mo_api/pluginname','',
-			new lang_string('auth_mo_configure_api_setting', 'auth_mo_api'),
-            new lang_string('mo_apidescription', 'auth_mo_api')));
+    $settings->add(
+        new admin_setting_heading(
+            'auth_mo_api/pluginname', '',
+            new lang_string('auth_mo_configure_api_setting', 'auth_mo_api'),
+            new lang_string('mo_apidescription', 'auth_mo_api')
+        )
+    );
 
-	//API Credentials
+    // API Credentials.
 
-	$settings->add(new admin_setting_heading('auth_mo_api/api_credentials',
-            new lang_string('mo_api_credentials', 'auth_mo_api'), ''));
+    $settings->add(
+        new admin_setting_heading(
+            'auth_mo_api/api_credentials',
+            new lang_string('mo_api_credentials', 'auth_mo_api'), ''
+        )
+    );
 
-	$settings->add(new admin_setting_description('auth_mo_api/User_Authentication_API_URL',
+    $settings->add(
+        new admin_setting_description(
+            'auth_mo_api/User_Authentication_API_URL',
             new lang_string('mo_api_User_Authentication_API_URL', 'auth_mo_api'),
-            $CFG->wwwroot."/auth/mo_api/api.php"));
+            $CFG->wwwroot."/auth/mo_api/api.php"
+        )
+    );
 
-	$settings->add(new admin_setting_description('auth_mo_api/API_key',
-            new lang_string('mo_api_apikey', 'auth_mo_api'),$apikey));
+    $settings->add(
+        new admin_setting_description(
+            'auth_mo_api/API_key',
+            new lang_string('mo_api_apikey', 'auth_mo_api'), $apikey
+        )
+    );
 
-	$settings->add(new admin_setting_description('auth_mo_api/Authn_parameter',
+    $settings->add(
+        new admin_setting_description(
+            'auth_mo_api/Authn_parameter',
             new lang_string('mo_api_authn_para', 'auth_mo_api'),
-                 '{ "api_key": "'.$apikey.'" , "username" : "##username##","password" : "##password##" }'));
+            '{ "api_key": "'.$apikey.'" , "username" : "##username##","password" : "##password##" }'
+        )
+    );
 
 
-	//Attributes
+    // Attributes.
 
-	$settings->add(new admin_setting_heading('auth_mo_api/user_attributes',
-            new lang_string('mo_api_attributes', 'auth_mo_api'), ''));
+    $settings->add(
+        new admin_setting_heading(
+            'auth_mo_api/user_attributes',
+            new lang_string('mo_api_attributes', 'auth_mo_api'), ''
+        )
+    );
 
-	$settings->add(new admin_setting_configtext('auth_mo_api/username',
+    $settings->add(
+        new admin_setting_configtext(
+            'auth_mo_api/username',
             get_string('mo_api_username', 'auth_mo_api'),
-            get_string('mo_api_username_desc', 'auth_mo_api'),'username', PARAM_RAW_TRIMMED));
+            get_string('mo_api_username_desc', 'auth_mo_api'), 'username', PARAM_RAW_TRIMMED
+        )
+    );
 
-	$settings->add(new admin_setting_configtext('auth_mo_api/fname',
+    $settings->add(
+        new admin_setting_configtext(
+            'auth_mo_api/fname',
             get_string('mo_api_fname', 'auth_mo_api'),
-            get_string('mo_api_fname_desc', 'auth_mo_api'),'fname', PARAM_RAW_TRIMMED));
+            get_string('mo_api_fname_desc', 'auth_mo_api'), 'fname', PARAM_RAW_TRIMMED
+        )
+    );
 
-	$settings->add(new admin_setting_configtext('auth_mo_api/lname',
+    $settings->add(
+        new admin_setting_configtext(
+            'auth_mo_api/lname',
             get_string('mo_api_lname', 'auth_mo_api'),
-            get_string('mo_api_lname_desc', 'auth_mo_api'),'lname', PARAM_RAW_TRIMMED));
+            get_string('mo_api_lname_desc', 'auth_mo_api'), 'lname', PARAM_RAW_TRIMMED
+        )
+    );
 
-	$settings->add(new admin_setting_configtext('auth_mo_api/email',
+    $settings->add(
+        new admin_setting_configtext(
+            'auth_mo_api/email',
             get_string('mo_api_email', 'auth_mo_api'),
-            get_string('mo_api_email_desc', 'auth_mo_api'),'email@gmail.com', PARAM_RAW_TRIMMED));
+            get_string('mo_api_email_desc', 'auth_mo_api'), 'email@gmail.com', PARAM_RAW_TRIMMED
+        )
+    );
 
-	$settings->add(new admin_setting_configtext('auth_mo_api/fullname',
+    $settings->add(
+        new admin_setting_configtext(
+            'auth_mo_api/fullname',
             get_string('mo_api_fullname', 'auth_mo_api'),
-            get_string('mo_api_fullname_desc', 'auth_mo_api'),'fullname', PARAM_RAW_TRIMMED));
+            get_string('mo_api_fullname_desc', 'auth_mo_api'), 'fullname', PARAM_RAW_TRIMMED
+        )
+    );
 
 }
