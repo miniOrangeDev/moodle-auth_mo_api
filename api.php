@@ -20,11 +20,12 @@
  * Contains authentication method.
  *
  * @copyright   2020  miniOrange
- * @category    authentication
+ * @category    Authentication
  * @license     http://www.gnu.org/copyleft/gpl.html GNU/GPL v3 or later, see license.txt
  * @package     auth_mo_api
  */
-require(__DIR__.'/../../config.php');
+
+require(__DIR__ . '/../../config.php');
 
 global $CFG;
 require_once($CFG->libdir . '/authlib.php');
