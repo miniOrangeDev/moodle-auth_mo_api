@@ -15,33 +15,34 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * This library is contain overridden moodle method.
  *
+ * Contains authentication method.
  *
  * @copyright   2020  miniOrange
  * @category    authentication
  * @license     http://www.gnu.org/copyleft/gpl.html GNU/GPL v3 or later, see license.txt
  * @package     auth_mo_api
  */
+require(__DIR__.'/../../config.php');
 
 global $CFG;
-require __DIR__ . '/../../config.php';
-require_once $CFG->libdir . '/authlib.php';
-require_once 'auth.php';
+require(__DIR__ . '/../../config.php');
+require_once($CFG->libdir . '/authlib.php');
+require_once('auth.php');
 
 $config = get_config('auth/mo_api');
 $input = file_get_contents("php://input");
-$jsonArray = array();
+$jsonarray = array();
 
 if (!empty($input)) {
-    $jsonArray = json_decode($input, true);
-    if (isset($jsonArray['api_key']) and isset($jsonArray['username']) and isset($jsonArray['password'])) {
-        $api_key = $jsonArray['api_key'];
-        if ($api_key == $config->apikey) {
-
-            $username = $jsonArray['username'];
-            $password = $jsonArray['password'];
+    $jsonarray = json_decode($input, true);
+    if (isset($jsonarray['api_key']) and isset($jsonarray['username']) and isset($jsonarray['password'])) {
+        $apikey = $jsonarray['api_key'];
+        if ($apikey == $config->apikey) {
+            $username = $jsonarray['username'];
+            $password = $jsonarray['password'];
             $value = authenticate_user_login($username, $password);
-
             if (!empty($value)) {
                 echo '{ "status":"SUCCESS", "message" : "Successfully logged in."';
                 attribute_getter($value);
@@ -53,6 +54,5 @@ if (!empty($input)) {
         }
     } else {
         echo '{ "error":"Invalid request."}';
-
     }
 }
