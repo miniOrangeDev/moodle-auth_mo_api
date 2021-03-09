@@ -15,29 +15,19 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This library is miniOrange Authentication Service.
+ * This library is contain overridden moodle method.
  *
+ * Contains authentication method.
  *
  * @copyright   2020  miniOrange
  * @category    authentication
  * @license     http://www.gnu.org/copyleft/gpl.html GNU/GPL v3 or later, see license.txt
  * @package     auth_mo_api
  */
+
 defined('MOODLE_INTERNAL') || die();
 $config = get_config('auth/mo_api');
 
-// Get_random_password is method which generates random password for every non-manual user.
-function get_random_password_api() {
-    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
-    $pass = array();
-    $alphalength = strlen($alphabet) - 1;
-    for ($i = 0; $i < 30; $i++) {
-        $n = rand(0, $alphalength);
-        $pass[] = $alphabet[$n];
-    }
-    return implode($pass);
-}
-// Timestamp for instant issuer.
 function generate_timestamp_api($instant = null) {
     if ($instant === null) {
         $instant = time();
@@ -59,5 +49,3 @@ function string_to_hex_api($bytes) {
 function generate_random_bytes_api($length, $fallback = true) {
     return openssl_random_pseudo_bytes($length);
 }
-
-
