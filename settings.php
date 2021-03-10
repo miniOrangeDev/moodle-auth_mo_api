@@ -20,7 +20,6 @@
  * Contains authentication method.
  *
  * @copyright   2020  miniOrange
- * @category    Authentication
  * @license     http://www.gnu.org/copyleft/gpl.html GNU/GPL v3 or later, see license.txt
  * @package     auth_mo_api
  */
@@ -38,8 +37,7 @@ if ($ADMIN->fulltree) {
     $settings->add(
         new admin_setting_heading(
             'auth_mo_api/pluginname', '',
-            new lang_string('auth_mo_configure_api_setting', 'auth_mo_api'),
-            new lang_string('mo_apidescription', 'auth_mo_api')
+            new lang_string('auth_mo_configure_api_setting', 'auth_mo_api')
         )
     );
 
@@ -113,7 +111,7 @@ if ($ADMIN->fulltree) {
         new admin_setting_configtext(
             'auth_mo_api/email',
             get_string('mo_api_email', 'auth_mo_api'),
-            get_string('mo_api_email_desc', 'auth_mo_api'), 'email@gmail.com', PARAM_RAW_TRIMMED
+            get_string('mo_api_email_desc', 'auth_mo_api'), 'fname@gmail.com', PARAM_RAW_TRIMMED
         )
     );
 
