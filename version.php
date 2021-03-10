@@ -18,14 +18,13 @@
  * Contains version related information.
  *
  * @copyright   2020  miniOrange
- * @category    Authentication
  * @license     http://www.gnu.org/copyleft/gpl.html GNU/GPL v3 or later, see license.txt
  * @package     auth_mo_api
  */
 defined('MOODLE_INTERNAL') || die();
-$plugin->requires = 2017111300;   // Requires Moodle 3.4 or later.
-$plugin->release = '1.0.2';
+$plugin->requires = 2018051700;   // Requires Moodle 3.5 or later.
+$plugin->release = '1.0.3';
 $plugin->component = 'auth_mo_api';
-$plugin->version = 2021030900;    // YYYYMMDDXX.
+$plugin->version = 2021031000;    // YYYYMMDDXX.
 $plugin->cron = 0;     // Time in sec.
 $plugin->maturity = MATURITY_STABLE;
