@@ -20,7 +20,6 @@
  * Contains authentication method.
  *
  * @copyright   2020  miniOrange
- * @category    Authentication
  * @license     http://www.gnu.org/copyleft/gpl.html GNU/GPL v3 or later, see license.txt
  * @package     auth_mo_api
  */
