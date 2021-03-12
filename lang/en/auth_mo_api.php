@@ -42,4 +42,3 @@ $string['mo_api_email'] = 'Email:';
 $string['mo_api_email_desc'] = '';
 $string['mo_api_fullname'] = 'Full Name:';
 $string['mo_api_fullname_desc'] = '';
-
