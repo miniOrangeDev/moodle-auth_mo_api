@@ -29,8 +29,9 @@ defined('MOODLE_INTERNAL') || die;
 if ($ADMIN->fulltree) {
     global $CFG;
     $config = get_config('auth/mo_api');
-    if (empty($apikey)) {
-        $apikey = "abcd";
+
+    if (empty($config->apikey)) {
+        $apikey = uniqid();
         set_config('apikey', $apikey, 'auth/mo_api');
     }
 
@@ -61,7 +62,7 @@ if ($ADMIN->fulltree) {
     $settings->add(
         new admin_setting_description(
             'auth_mo_api/API_key',
-            new lang_string('mo_api_apikey', 'auth_mo_api'), $apikey
+            new lang_string('mo_api_apikey', 'auth_mo_api'), $config->apikey
         )
     );
 
@@ -69,7 +70,7 @@ if ($ADMIN->fulltree) {
         new admin_setting_description(
             'auth_mo_api/Authn_parameter',
             new lang_string('mo_api_authn_para', 'auth_mo_api'),
-            '{ "api_key": "'.$apikey.'" , "username" : "##username##","password" : "##password##" }'
+            '{ "api_key": "'.$config->apikey.'" , "username" : "##username##","password" : "##password##" }'
         )
     );
 
@@ -79,7 +80,7 @@ if ($ADMIN->fulltree) {
     $settings->add(
         new admin_setting_heading(
             'auth_mo_api/user_attributes',
-            new lang_string('mo_api_attributes', 'auth_mo_api'), ''
+            new lang_string('mo_api_attributes', 'auth_mo_api'), 'abcd'
         )
     );
 
@@ -111,7 +112,7 @@ if ($ADMIN->fulltree) {
         new admin_setting_configtext(
             'auth_mo_api/email',
             get_string('mo_api_email', 'auth_mo_api'),
-            get_string('mo_api_email_desc', 'auth_mo_api'), 'fname@gmail.com', PARAM_RAW_TRIMMED
+            get_string('mo_api_email_desc', 'auth_mo_api'), 'email', PARAM_RAW_TRIMMED
         )
     );
 
