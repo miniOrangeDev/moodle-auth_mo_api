@@ -44,6 +44,7 @@ class auth_plugin_mo_api extends auth_plugin_base {
      * auth_plugin_mo_api constructor.
      */
     public function __construct() {
+        $this->authtype = 'mo_api';
         $this->config = get_config('auth/mo_api');
     }
 
