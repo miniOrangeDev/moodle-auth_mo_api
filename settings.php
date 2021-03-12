@@ -80,7 +80,7 @@ if ($ADMIN->fulltree) {
     $settings->add(
         new admin_setting_heading(
             'auth_mo_api/user_attributes',
-            new lang_string('mo_api_attributes', 'auth_mo_api'), 'abcd'
+            new lang_string('mo_api_attributes', 'auth_mo_api'), ''
         )
     );
 
@@ -96,7 +96,7 @@ if ($ADMIN->fulltree) {
         new admin_setting_configtext(
             'auth_mo_api/fname',
             get_string('mo_api_fname', 'auth_mo_api'),
-            get_string('mo_api_fname_desc', 'auth_mo_api'), 'fname', PARAM_RAW_TRIMMED
+            get_string('mo_api_fname_desc', 'auth_mo_api'), 'firstname', PARAM_RAW_TRIMMED
         )
     );
 
@@ -104,7 +104,7 @@ if ($ADMIN->fulltree) {
         new admin_setting_configtext(
             'auth_mo_api/lname',
             get_string('mo_api_lname', 'auth_mo_api'),
-            get_string('mo_api_lname_desc', 'auth_mo_api'), 'lname', PARAM_RAW_TRIMMED
+            get_string('mo_api_lname_desc', 'auth_mo_api'), 'lastname', PARAM_RAW_TRIMMED
         )
     );
 
