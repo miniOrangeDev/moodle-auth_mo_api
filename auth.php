@@ -27,9 +27,9 @@
 defined('MOODLE_INTERNAL') || die;
 
 global $CFG;
-require_once('functions.php');
-require_once($CFG->libdir.'/authlib.php');
+$config = get_config('auth/mo_api');
 
+require_once($CFG->libdir.'/authlib.php');
 
 /**
  * This class contains authentication plugin method.
@@ -39,62 +39,12 @@ require_once($CFG->libdir.'/authlib.php');
  * @package    auth_mo_api
  */
 class auth_plugin_mo_api extends auth_plugin_base {
-    /**
-     * Checking the value coming into this method is valid and empty.
-     *
-     * @param string $value
-     * @return bool
-     */
-    public function mo_api_check_empty_or_null($value ) {
-        if ( ! isset( $value ) || empty( $value ) ) {
-            return true;
-        }
-        return false;
-    }
 
     /**
      * auth_plugin_mo_api constructor.
      */
     public function __construct() {
-        $this->authtype = 'mo_api';
-        $this->roleauth = 'mo_api';
         $this->config = get_config('auth/mo_api');
-    }
-
-    /**
-     * Checking curl installed or not. Return 1 if if present otherwise 0.
-     * @return int
-     */
-    public function mo_api_is_curl_installed() {
-        if (in_array  ('curl', get_loaded_extensions())) {
-            return 1;
-        } else {
-            return 0;
-        }
-    }
-
-    /**
-     * Checking openssl installed or not. Return 1 if if present otherwise 0.
-     * @return int
-     */
-    public function mo_api_is_openssl_installed() {
-        if (in_array  ('openssl', get_loaded_extensions())) {
-            return 1;
-        } else {
-            return 0;
-        }
-    }
-
-    /**
-     * Checking mcrypt installed or not. Return 1 if present otherwise 0.
-     * @return int
-     */
-    public function mo_api_is_mcrypt_installed() {
-        if (in_array  ('mcrypt', get_loaded_extensions())) {
-            return 1;
-        } else {
-            return 0;
-        }
     }
 
     /**
@@ -120,6 +70,7 @@ class auth_plugin_mo_api extends auth_plugin_base {
     public function is_internal() {
         return false;
     }
+
     // This function automatically returns the opposite boolean of what is_internal() returns.
     // Returning true means MD5 password hashes will be stored in the user table.
     // Returning false means flag 'not_cached' will be stored there instead.
@@ -148,7 +99,6 @@ class auth_plugin_mo_api extends auth_plugin_base {
     public function can_edit_profile() {
         return true;
     }
-
 }
 
 /**
@@ -157,21 +107,22 @@ class auth_plugin_mo_api extends auth_plugin_base {
  * @param string $value
  */
 function attribute_getter($value) {
-    $config = get_config('auth/mo_api');
-    if ($config->username_api != "") {
-        echo ',"'.$config->username_api.'":"'.$value->username.'"';
+    $config = get_config('auth_mo_api');
+
+    if (!empty($config->username)) {
+        echo ',"'.$config->username.'":"'.$value->username.'"';
     }
-    if ($config->first_name != "") {
-        echo ',"'.$config->first_name.'":"'.$value->firstname.'"';
+    if (!empty($config->fname)) {
+        echo ',"'.$config->fname.'":"'.$value->firstname.'"';
     }
-    if ($config->last_name != "") {
-        echo ',"'.$config->last_name.'":"'.$value->lastname.'"';
+    if (!empty($config->lname)) {
+        echo ',"'.$config->lname.'":"'.$value->lastname.'"';
     }
-    if ($config->email_att != "") {
-        echo ',"'.$config->email_att.'":"'.$value->email.'"';
+    if (!empty($config->email)) {
+        echo ',"'.$config->email.'":"'.$value->email.'"';
     }
-    if ($config->full_name_attr != "") {
-        echo ',"'.$config->full_name_attr.'":"'.$value->firstname, $value->lastname.'"';
+    if (!empty($config->fullname)) {
+        echo ',"'.$config->fullname.'":"'.$value->firstname, $value->lastname.'"';
     }
     echo '}';
 }
