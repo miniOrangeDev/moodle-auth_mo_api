@@ -80,7 +80,7 @@ if ($ADMIN->fulltree) {
     $settings->add(
         new admin_setting_heading(
             'auth_mo_api/user_attributes',
-            new lang_string('mo_api_attributes', 'auth_mo_api'), ''
+            new lang_string('mo_api_attributes', 'auth_mo_api'), new lang_string('mo_api_attributes_desc', 'auth_mo_api')
         )
     );
 
