@@ -26,7 +26,7 @@
 
 $string['mo_apititle'] = 'Login using Moodle Users';
 $string['pluginname'] = 'Login using Moodle Users';
-$string['auth_mo_configure_api_setting'] = 'Moodle SSO solution by miniOrange allows your users to login to multiple applications via their Moodle credentials.This way, you can achieve Single Sign-On into your applications where the users will need to authenticate themselves via their Moodle credentials only once and they can access all the configured applications.';
+$string['auth_mo_configure_api_setting'] = 'This Moodle SSO solution by miniOrange allows your users to authentication themselves into multiple external applications using their Moodle credentials.';
 $string['mo_api_credentials'] = 'API Credentials: ';
 $string['mo_api_User_Authentication_API_URL'] = 'User Authentication API URL: ';
 $string['mo_api_apikey'] = 'API Key: ';
